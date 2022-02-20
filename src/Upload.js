@@ -1,33 +1,39 @@
+import React from "react";
+
 function Upload() {
+    const [selected, setSelected] = React.useState("");
+
+    const changeSelectOptionHandler = (event) => {
+        setSelected(event.target.value);
+    };
+
     return(
         <div class="row">
             <div class="container">
                 <div class="container col-xs-8 p-5 my-5 border border-2">
-                    <div className="imageUpload" class="mx-5 mt-2 mb-5">
+                    <div class="mx-5 mt-2 mb-5">
                         <input type="file" />
                     </div>
-                    <div className="title" class="col-xs-6 mx-5 my-3 row">
-                        <input type="text" placeholder="제목" class="" />
+                    <div class="col-xs-3 mx-5 my-3 row" style={{margin: "0 auto", width: "1272px"}}>
+                        <input type="text" placeholder="제목" style={{width: "250px"}} />
                     </div>
-                    <div class="col-xs-2 dropdown mx-5 my-3 row">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                            카테고리
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">의류</a></li>
-                            <li><a class="dropdown-item" href="#">잡화</a></li>
-                            <li><a class="dropdown-item" href="#">인테리어</a></li>
-                            <li><a class="dropdown-item" href="#">기타</a></li>
-                        </ul>
+                    <div class="col-xs-3 mx-5 my-3 row">
+                        <select style={{width: "250px"}} onChange={changeSelectOptionHandler}>
+                            <option value="0">종류를 선택해주세요</option>
+                            <option value="1">의류</option>
+                            <option value="2">가구</option>
+                            <option value="3">소품</option>
+                            <option value="4">잡화</option>
+                        </select>
                     </div>
-                    <div className="octionPrice" class="mx-5 my-3 row">
-                        <input type="text" placeholder="경매 시작 금액" class="col-xs-3" />
+                    <div class="col-xs-3 mx-5 my-3 row"  style={{width: "250px"}}>
+                        <input type="text" placeholder="경매 시작 금액" />
                     </div>
-                    <div className="price" class="mx-5 my-3 row">
-                        <input type="text" placeholder="즉시 구매 금액" class="col-xs-3" />
+                    <div class="col-xs-3 mx-5 my-3 row"  style={{width: "250px"}}>
+                        <input type="text" placeholder="즉시 구매 금액" />
                     </div>
-                    <div className="content" class="mx-5 my-3 row">
-                        <textarea placeholder="게시글을 입력해주세요" rows="20" class="col-xs-6"   />
+                    <div class="col-xs-3 mx-5 my-3 row">
+                        <textarea placeholder="게시글을 입력해주세요" rows="20"   />
                     </div>
                     <div class="mx-5 mt-3 mb-5" align="right">
                         <button type="button" class="mx-2 btn btn-primary">등록</button>
